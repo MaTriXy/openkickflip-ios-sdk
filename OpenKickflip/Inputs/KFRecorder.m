@@ -60,8 +60,8 @@
 
 - (void) setupSession {
     _session = [[AVCaptureSession alloc] init];
-    _movieWritingQueue = dispatch_queue_create("Movie Writing Queue", DISPATCH_QUEUE_SERIAL);
-    _session.automaticallyConfiguresApplicationAudioSession = NO;
+    //_movieWritingQueue = dispatch_queue_create("Movie Writing Queue", DISPATCH_QUEUE_SERIAL);
+    //_session.automaticallyConfiguresApplicationAudioSession = NO;
     [self setupVideoCapture];
     if ([OpenKickflip useAudio]) { [self setupAudioCapture]; }
     
