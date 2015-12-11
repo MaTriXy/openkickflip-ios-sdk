@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "OpenKickflip"
-  s.version      = "1.5"
+  s.version      = "1.5.1"
   s.summary      = "The Open Kickflip platform provides a complete video broadcasting solution for your iOS 
 application. Based on Chris' KickFlip."
   s.homepage     = "https://github.com/OpenKickflip/openkickflip-ios-sdk.git"
