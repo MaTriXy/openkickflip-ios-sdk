@@ -655,7 +655,9 @@
 
 - (void) uploader:(KFHLSUploader *)uploader liveManifestReadyAtURL:(NSURL *)manifestURL {
     if (self.delegate && [self.delegate respondsToSelector:@selector(recorder:streamReadyAtURL:)]) {
-      [self.delegate recorder:self streamReadyAtURL:manifestURL];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.delegate recorder:self streamReadyAtURL:manifestURL];
+        });
     }
 }
 
