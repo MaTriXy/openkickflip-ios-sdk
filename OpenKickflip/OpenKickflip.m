@@ -49,10 +49,10 @@ static OpenKickflip *_kickflip = nil;
 - (id)init {
     if (self = [super init]) {
         _h264Profile = AVVideoProfileLevelH264BaselineAutoLevel;
-        _resolutionWidth = 568;
-        _resolutionHeight = 320;
-        _minBitrate = 456 * 1000; // 400 Kbps
-        _maxBitrate = 2056 * 1000; // 2 Mbps
+        _resolutionWidth = 414;
+        _resolutionHeight = 736;
+        _minBitrate = 456 * 500; // 200 Kbps
+        _maxBitrate = 2056 * 500; // 1 Mbps
         _initialBitrate = _maxBitrate;
         _useAdaptiveBitrate = YES;
         _useAudio = YES;

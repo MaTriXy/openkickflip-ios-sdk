@@ -95,13 +95,8 @@
 - (void) setupEncoders {
     self.audioSampleRate = 44100;
     
-    if (UIInterfaceOrientationIsPortrait([UIApplication sharedApplication].statusBarOrientation)) {
-        self.videoWidth = [OpenKickflip resolutionHeight];
-        self.videoHeight = [OpenKickflip resolutionWidth];
-    } else {
-        self.videoWidth = [OpenKickflip resolutionWidth];
-        self.videoHeight = [OpenKickflip resolutionHeight];
-    }
+    self.videoWidth = 414;
+    self.videoHeight = 736;
     
     int audioBitrate = 56 * 1000; // 56 Kbps
     int initialBitrate = [OpenKickflip initialBitrate];
@@ -455,11 +450,11 @@
     self.stream = s3Endpoint;
     [self setStreamStartLocation];
     
-    s3Endpoint.streamState = KFStreamStateStreaming;
-    [self setupHLSWriterWithEndpoint:s3Endpoint];
+    self.stream.streamState = KFStreamStateStreaming;
+    [self setupHLSWriterWithEndpoint:self.stream];
     
     [[KFHLSMonitor sharedMonitor] startMonitoringFolderPath:_hlsWriter.directoryPath
-                                                   endpoint:s3Endpoint delegate:self];
+                                                   endpoint:self.stream delegate:self];
     
     NSError *error = nil;
     [_hlsWriter prepareForWriting:&error];
